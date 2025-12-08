@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@l2ui/components": ["../../packages/components/src"],
+      "@l2ui/utils": ["../../packages/utils/src"],
+      "@l2ui/styles": ["../../packages/styles/src"]
+    },
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"]
+  },
+  "include": ["src", ".storybook", "src/**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
+

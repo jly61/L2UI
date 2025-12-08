@@ -1,0 +1,45 @@
+{
+  "name": "l2ui-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "L2UI - 一个现代化的 React 组件库",
+  "author": "L2UI Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./packages/*\" --filter \"./apps/*\" dev",
+    "build": "pnpm --recursive --filter \"./packages/*\" build",
+    "test": "pnpm --recursive --filter \"./packages/*\" test",
+    "test:watch": "pnpm --recursive --filter \"./packages/*\" test:watch",
+    "test:coverage": "pnpm --recursive --filter \"./packages/*\" test:coverage",
+    "lint": "pnpm --recursive --filter \"./packages/*\" --filter \"./apps/*\" lint",
+    "lint:fix": "pnpm --recursive --filter \"./packages/*\" --filter \"./apps/*\" lint:fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "type-check": "pnpm --recursive --filter \"./packages/*\" type-check",
+    "clean": "pnpm --recursive --filter \"./packages/*\" clean",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}
+
