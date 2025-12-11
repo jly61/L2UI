@@ -1,21 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from '@l2ui/styles';
 import { Button } from './Button';
-
-const defaultTheme = {
-  colors: {
-    primary: '#1890ff',
-    error: '#ff4d4f',
-    text: '#000',
-    border: '#d9d9d9',
-    background: '#fff',
-    hover: 'rgba(0, 0, 0, 0.06)',
-  },
-  borderRadius: {
-    default: '4px',
-  },
-};
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',

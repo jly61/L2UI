@@ -2,8 +2,13 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
 import path from 'path';
 
+const rootPath = path.resolve(__dirname, '../../..');
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)', '../src/**/*.mdx'],
+  stories: [
+    path.resolve(rootPath, 'apps/docs/src/**/*.stories.@(js|jsx|ts|tsx|mdx)'),
+    path.resolve(rootPath, 'apps/docs/src/**/*.mdx'),
+    path.resolve(rootPath, 'packages/components/src/**/*.stories.@(ts|tsx)'),
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -17,7 +22,6 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   async viteFinal(config) {
-    const rootPath = path.resolve(__dirname, '../../../');
     return mergeConfig(config, {
       resolve: {
         alias: {
@@ -31,7 +35,7 @@ const config: StorybookConfig = {
       },
       server: {
         fs: {
-          allow: ['..'],
+          allow: [rootPath],
         },
       },
     });
