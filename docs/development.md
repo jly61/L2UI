@@ -99,6 +99,7 @@ pnpm --filter @l2ui/docs dev
 - 测试组件交互
 - 查看组件 API
 - 测试不同主题
+- **示例来源**：Story 统一放在 `packages/components/src/**/*.stories.tsx`，文档站仅提供装饰器、主题等全局配置，避免在 `apps/docs` 重复编写示例。
 
 ### 热模块替换 (HMR)
 
@@ -295,6 +296,18 @@ export { Button, type ButtonProps } from './button';
 ```tsx
 export { Button, type ButtonProps } from '@l2ui/components';
 ```
+
+## 主题与设计体系
+
+- 默认主题：`@l2ui/styles` 提供的 `defaultTheme`，组件与文档站统一使用。
+- Token 维护：颜色、间距、排版、圆角、断点等集中定义于 `packages/styles/src/theme`，修改需保持向后兼容。
+- 多主题计划：如需新增暗色/品牌主题，在 `styles` 包新增配置，并在 Storybook 提供主题切换示例。
+
+## 质量与 CI 校验
+
+- 本地建议：`pnpm lint && pnpm type-check && pnpm test` 覆盖基础质量。
+- 文档校验：`pnpm --filter @l2ui/docs build`（Storybook build）确保 stories 可编译、无缺失。
+- 覆盖率：新增组件补充交互测试，关键路径保持可验证的测试覆盖率；可按模块设定覆盖率目标。
 
 ## 构建
 

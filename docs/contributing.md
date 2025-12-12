@@ -132,6 +132,7 @@ git push origin feat/your-feature-name
    - 多种使用场景
    - 交互式示例
    - 清晰的文档
+   - **放置位置**：统一存放在 `packages/components/src/**/*/*.stories.tsx`，docs 站直接复用，避免在 `apps/docs` 重复编写
 
 6. **README** (`README.md`)
    - 组件说明

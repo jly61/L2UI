@@ -67,12 +67,10 @@
 
 **组件列表**:
 - [x] Button（已完成基础实现、测试、文档）
-- [ ] Input
-- [ ] Select
-- [ ] Checkbox
-- [ ] Radio
-- [ ] Switch
-- [ ] DatePicker
+- [x] Input（已完成基础实现、测试、文档）
+- [x] Select（已完成基础实现、测试、文档）
+- [x] Checkbox（已完成基础实现、测试、文档）
+- [x] DatePicker（已完成基础实现、测试、文档）
 - [ ] Form
 - [ ] Table
 - [ ] Modal
