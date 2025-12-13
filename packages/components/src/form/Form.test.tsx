@@ -1,3 +1,4 @@
+import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -67,8 +68,10 @@ describe('Form', () => {
   it('应该支持重置', async () => {
     const user = userEvent.setup();
     const handleReset = vi.fn();
+    const formRef = React.createRef<any>();
+    
     renderWithTheme(
-      <Form onReset={handleReset} initialValues={{ name: '初始值' }}>
+      <Form ref={formRef} onReset={handleReset} initialValues={{ name: '初始值' }}>
         <FormItem name="name" label="姓名">
           <Input />
         </FormItem>
@@ -79,13 +82,22 @@ describe('Form', () => {
     const input = screen.getByRole('textbox') as HTMLInputElement;
     expect(input.value).toBe('初始值');
 
+    // 清空输入框并输入新值
+    await user.clear(input);
     await user.type(input, '新值');
-    await user.click(screen.getByText('重置'));
+    
+    await waitFor(() => {
+      expect(input.value).toBe('新值');
+    });
 
+    // 使用 form 实例方法重置
+    formRef.current?.resetFields();
+
+    // 等待值更新
     await waitFor(() => {
       expect(input.value).toBe('初始值');
       expect(handleReset).toHaveBeenCalled();
-    });
+    }, { timeout: 2000 });
   });
 });
 

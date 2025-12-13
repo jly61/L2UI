@@ -41,8 +41,8 @@ export const FormItem: React.FC<FormItemProps> = ({
     }
   }, [name, mergedRules, registerField]);
 
-  // 获取字段值
-  const fieldValue = name ? values[name] : undefined;
+  // 获取字段值（如果 name 存在，即使值为 undefined 也要获取，确保是受控组件）
+  const fieldValue = name !== undefined ? values[name] : undefined;
   const fieldError = name ? errors[name] : undefined;
 
   // 处理子元素变化
@@ -77,9 +77,10 @@ export const FormItem: React.FC<FormItemProps> = ({
   };
 
   // 克隆子元素并注入 props
+  // 如果字段有 name，始终传递 value，确保组件是受控的
   const childElement = isValidElement(children)
     ? cloneElement(children as React.ReactElement<any>, {
-        ...(name && fieldValue !== undefined ? { value: fieldValue } : {}),
+        ...(name !== undefined ? { value: fieldValue ?? '' } : children.props.value !== undefined ? { value: children.props.value } : {}),
         onChange: handleChange,
         onBlur: handleBlur,
         ...(fieldError && { 'aria-invalid': true }),

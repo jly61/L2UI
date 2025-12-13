@@ -1,7 +1,7 @@
-import React, { useRef, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
+import React, { useRef, useState, useCallback, useImperativeHandle, forwardRef, useEffect, useMemo } from 'react';
 import { StyledForm } from './Form.styles';
 import { FormContext } from './FormContext';
-import type { FormProps, FormInstance, FormValues, FormRule } from './Form.types';
+import type { FormProps, FormInstance, FormValues, FormRule, FormField } from './Form.types';
 
 /**
  * 验证字段值
@@ -97,7 +97,8 @@ export const Form = forwardRef<FormInstance, FormProps>(
     },
     ref
   ) => {
-    const [values, setValues] = useState<FormValues>(() => {
+    // 计算初始值
+    const getInitialValues = useCallback(() => {
       const initial: FormValues = { ...initialValues };
       fields.forEach((field) => {
         if (field.initialValue !== undefined && initial[field.name] === undefined) {
@@ -105,9 +106,19 @@ export const Form = forwardRef<FormInstance, FormProps>(
         }
       });
       return initial;
-    });
+    }, [initialValues, fields]);
+
+    const initialValuesMemo = useMemo(() => getInitialValues(), [getInitialValues]);
+    const [values, setValues] = useState<FormValues>(initialValuesMemo);
     const [errors, setErrors] = useState<Record<string, string>>({});
     const fieldRulesRef = useRef<Record<string, FormRule[]>>({});
+    const initialValuesRef = useRef<FormValues>(initialValuesMemo);
+
+    // 同步 initialValues 和 fields 的引用
+    useEffect(() => {
+      const newInitialValues = getInitialValues();
+      initialValuesRef.current = newInitialValues;
+    }, [getInitialValues]);
 
     // 注册字段规则
     const registerField = useCallback((name: string, rules: FormRule[]) => {
@@ -234,16 +245,13 @@ export const Form = forwardRef<FormInstance, FormProps>(
 
     // 重置表单
     const resetFields = useCallback(() => {
-      const resetValues: FormValues = { ...initialValues };
-      fields.forEach((field) => {
-        if (field.initialValue !== undefined) {
-          resetValues[field.name] = field.initialValue;
-        }
-      });
+      const resetValues = getInitialValues();
       setValues(resetValues);
       setErrors({});
+      // 更新 ref 以保持同步
+      initialValuesRef.current = resetValues;
       onReset?.();
-    }, [initialValues, fields, onReset]);
+    }, [getInitialValues, onReset]);
 
     // 暴露实例方法
     useImperativeHandle(ref, () => ({
