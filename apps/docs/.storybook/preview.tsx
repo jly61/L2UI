@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '@l2ui/styles';
+import { defaultTheme, GlobalStyles } from '@l2ui/styles';
 
 const preview: Preview = {
   parameters: {
@@ -16,6 +16,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles theme={defaultTheme} />
         <Story />
       </ThemeProvider>
     ),

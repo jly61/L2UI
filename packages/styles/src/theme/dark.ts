@@ -1,18 +1,20 @@
 import type { Theme } from './types';
-import { darkTheme } from './dark';
 
-export const defaultTheme: Theme = {
+/**
+ * 暗色主题配置
+ */
+export const darkTheme: Theme = {
   colors: {
     primary: '#1890ff',
     success: '#52c41a',
     warning: '#faad14',
     error: '#ff4d4f',
     info: '#1890ff',
-    text: '#000000d9',
-    textSecondary: '#00000073',
-    border: '#d9d9d9',
-    background: '#ffffff',
-    hover: 'rgba(0, 0, 0, 0.06)',
+    text: '#ffffffd9',
+    textSecondary: '#ffffff73',
+    border: '#434343',
+    background: '#141414',
+    hover: 'rgba(255, 255, 255, 0.08)',
   },
   spacing: {
     xs: '4px',
@@ -61,7 +63,4 @@ export const defaultTheme: Theme = {
     xxl: '1600px',
   },
 };
-
-export { defaultTheme as theme };
-export { darkTheme } from './dark';
 
