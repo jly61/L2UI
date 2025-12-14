@@ -192,6 +192,27 @@ function updateChangelog(version, type) {
 }
 
 /**
+ * 检查 npm 认证状态
+ */
+function checkNpmAuth() {
+  try {
+    const whoami = execSync('npm whoami', { encoding: 'utf-8', stdio: 'pipe' }).trim();
+    console.log(`✓ npm 已登录: ${whoami}`);
+    return true;
+  } catch (error) {
+    console.error('\n❌ npm 未登录或认证失败');
+    console.error('\n请先登录 npm:');
+    console.error('  1. 运行: npm login');
+    console.error(
+      '  2. 或配置访问令牌: npm config set //registry.npmjs.org/:_authToken YOUR_TOKEN'
+    );
+    console.error('\n如果启用了 2FA，需要使用具有 "bypass 2fa" 权限的访问令牌');
+    console.error('  创建令牌: https://www.npmjs.com/settings/YOUR_USERNAME/tokens\n');
+    return false;
+  }
+}
+
+/**
  * 发布包
  */
 function publish(packageName, version, tag) {
@@ -208,7 +229,20 @@ function publish(packageName, version, tag) {
     });
     console.log(`✓ ${packageName}@${version} 发布成功\n`);
   } catch (error) {
-    console.error(`❌ ${packageName} 发布失败`);
+    console.error(`\n❌ ${packageName} 发布失败`);
+
+    // 检查是否是认证错误
+    if (error.message && error.message.includes('403')) {
+      console.error('\n⚠️  认证错误：');
+      console.error('  1. 确保已登录 npm: npm login');
+      console.error('  2. 如果启用了 2FA，需要使用访问令牌:');
+      console.error('     - 创建令牌: https://www.npmjs.com/settings/YOUR_USERNAME/tokens');
+      console.error('     - 选择 "Automation" 或 "Publish" 类型');
+      console.error('     - 确保启用 "bypass 2fa" 权限');
+      console.error('     - 配置: npm config set //registry.npmjs.org/:_authToken YOUR_TOKEN');
+      console.error('  3. 检查是否有发布权限');
+    }
+
     process.exit(1);
   }
 }
@@ -279,7 +313,14 @@ function main() {
     process.exit(1);
   }
 
-  // 9. 发布所有包
+  // 9. 检查 npm 认证
+  console.log('\n🔐 检查 npm 认证状态...');
+  if (!checkNpmAuth()) {
+    console.error('\n❌ npm 认证检查失败，请先配置认证后再试');
+    process.exit(1);
+  }
+
+  // 10. 发布所有包
   console.log(`\n⚠️  准备发布到 npm，请确认:`);
   console.log(`   - 版本号: ${newVersion}`);
   console.log(`   - 发布标签: ${tag || 'latest'}`);
