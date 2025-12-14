@@ -1,6 +1,6 @@
 {
   "name": "@l2ui/styles",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "L2UI 样式主题包",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
