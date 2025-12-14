@@ -66,4 +66,3 @@ export interface Theme {
   borderRadius: BorderRadius;
   breakpoints: Breakpoints;
 }
-

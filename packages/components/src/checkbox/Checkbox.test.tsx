@@ -50,32 +50,20 @@ describe('Checkbox', () => {
   });
 
   it('应该支持禁用状态', () => {
-    renderWithTheme(
-      <Checkbox disabled>
-        禁用复选框
-      </Checkbox>
-    );
+    renderWithTheme(<Checkbox disabled>禁用复选框</Checkbox>);
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
     expect(checkbox.disabled).toBe(true);
   });
 
   it('应该支持不确定状态', () => {
-    const { container } = renderWithTheme(
-      <Checkbox indeterminate>
-        不确定复选框
-      </Checkbox>
-    );
+    const { container } = renderWithTheme(<Checkbox indeterminate>不确定复选框</Checkbox>);
     const checkbox = container.querySelector('input[type="checkbox"]') as HTMLInputElement;
     expect(checkbox.indeterminate).toBe(true);
   });
 
   it('应该支持不同尺寸', () => {
-    const { container: smallContainer } = renderWithTheme(
-      <Checkbox size="small">小号</Checkbox>
-    );
-    const { container: largeContainer } = renderWithTheme(
-      <Checkbox size="large">大号</Checkbox>
-    );
+    const { container: smallContainer } = renderWithTheme(<Checkbox size="small">小号</Checkbox>);
+    const { container: largeContainer } = renderWithTheme(<Checkbox size="large">大号</Checkbox>);
 
     const smallInput = smallContainer.querySelector('input');
     const largeInput = largeContainer.querySelector('input');
@@ -97,4 +85,3 @@ describe('Checkbox', () => {
     expect(handleChange).not.toHaveBeenCalled();
   });
 });
-

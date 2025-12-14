@@ -5,6 +5,7 @@
 ## 📦 项目简介
 
 L2UI 是一个高质量的 React UI 组件库，旨在提供：
+
 - 🎨 精美的设计和良好的用户体验
 - ⚡ 优秀的性能和按需加载
 - 🔧 完整的 TypeScript 支持
@@ -87,18 +88,23 @@ L2UI/
 ## 📦 包说明
 
 ### @l2ui/components
+
 组件源码包，包含所有 UI 组件的实现。
 
 ### @l2ui/utils
+
 工具函数包，提供通用的工具方法。
 
 ### @l2ui/styles
+
 样式主题包，包含主题配置和全局样式。
 
 ### l2ui
+
 主入口包，导出所有组件和工具，供用户使用。
 
 ### @l2ui/docs
+
 文档站点应用，基于 Storybook 构建的组件文档。
 
 ## 🎯 开发
@@ -168,17 +174,20 @@ pnpm type-check
 ## 📝 组件列表
 
 ### 基础组件
+
 - Button - 按钮
 - Icon - 图标
 - Typography - 排版
 
 ### 布局组件
+
 - Layout - 布局
 - Grid - 栅格
 - Space - 间距
 - Divider - 分割线
 
 ### 表单组件
+
 - Input - 输入框
 - TextArea - 文本域
 - Select - 选择器
@@ -189,6 +198,7 @@ pnpm type-check
 - Form - 表单
 
 ### 数据展示
+
 - Table - 表格
 - List - 列表
 - Card - 卡片
@@ -198,6 +208,7 @@ pnpm type-check
 - Popover - 气泡卡片
 
 ### 反馈组件
+
 - Message - 全局提示
 - Notification - 通知提醒
 - Modal - 对话框
@@ -207,6 +218,7 @@ pnpm type-check
 - Alert - 警告提示
 
 ### 导航组件
+
 - Menu - 导航菜单
 - Tabs - 标签页
 - Breadcrumb - 面包屑
@@ -238,4 +250,3 @@ MIT License
 ---
 
 Made with ❤️ by L2UI Team
-

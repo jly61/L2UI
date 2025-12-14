@@ -35,13 +35,16 @@ L2UI/
 ### 配置文件
 
 #### `package.json`
+
 根 package.json，主要配置：
+
 - 工作空间配置
 - 共享脚本命令
 - 开发依赖
 - 项目元信息
 
 #### `pnpm-workspace.yaml`
+
 pnpm workspace 配置，定义工作空间包含的包：
 
 ```yaml
@@ -51,36 +54,46 @@ packages:
 ```
 
 #### `tsconfig.json`
+
 TypeScript 根配置，包含：
+
 - 基础编译选项
 - 路径别名配置
 - 各包的配置继承
 
 #### `.eslintrc.js`
+
 ESLint 配置，包含：
+
 - 基础规则
 - TypeScript 规则
 - React 规则
 - 可访问性规则
 
 #### `.prettierrc`
+
 Prettier 配置，定义代码格式化规则。
 
 #### `.gitignore`
+
 Git 忽略文件配置。
 
 ### 目录说明
 
 #### `packages/`
+
 所有包的源码目录，每个子目录都是一个独立的 npm 包。
 
 #### `apps/`
+
 应用目录，包含文档站点等应用。
 
 #### `scripts/`
+
 共享脚本，如构建脚本、发布脚本等。
 
 #### `docs/`
+
 项目文档，包括架构设计、开发指南等。
 
 ## packages/ 目录结构
@@ -127,31 +140,37 @@ component-name/
 #### 文件说明
 
 **ComponentName.tsx**
+
 - 组件的主要实现
 - 包含组件逻辑
 - 导出组件
 
 **ComponentName.styles.ts**
+
 - styled-components 样式定义
 - 样式变体
 - 主题使用
 
 **ComponentName.types.ts**
+
 - Props 类型定义
 - 组件相关类型
 - 导出类型
 
 **ComponentName.test.tsx**
+
 - 单元测试
 - 使用 React Testing Library
 - 覆盖主要功能
 
 **ComponentName.stories.tsx**
+
 - Storybook 文档
 - 组件示例
 - 交互式演示
 
 **README.md**
+
 - 组件使用说明
 - API 文档
 - 示例代码
@@ -370,6 +389,7 @@ apps/docs
 ### 各包的构建输出
 
 #### @l2ui/components
+
 ```
 dist/
 ├── index.js           # CommonJS
@@ -379,6 +399,7 @@ dist/
 ```
 
 #### @l2ui/utils
+
 ```
 dist/
 ├── index.js
@@ -387,6 +408,7 @@ dist/
 ```
 
 #### l2ui (主入口包)
+
 ```
 dist/
 ├── index.js
@@ -430,4 +452,3 @@ dist/
 5. **Monorepo 优势**: 代码共享，统一管理
 
 如有结构相关问题，请参考本文档或提交 Issue 讨论。
-

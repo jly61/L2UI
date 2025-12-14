@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useState } from 'react';
+import { forwardRef, useMemo, useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { StyledInput } from './Input.styles';
 import type { InputProps } from './Input.types';
@@ -51,4 +51,3 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 Input.displayName = 'Input';
 
 export default Input;
-

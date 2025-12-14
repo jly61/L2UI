@@ -69,7 +69,7 @@ describe('Form', () => {
     const user = userEvent.setup();
     const handleReset = vi.fn();
     const formRef = React.createRef<any>();
-    
+
     renderWithTheme(
       <Form ref={formRef} onReset={handleReset} initialValues={{ name: '初始值' }}>
         <FormItem name="name" label="姓名">
@@ -85,7 +85,7 @@ describe('Form', () => {
     // 清空输入框并输入新值
     await user.clear(input);
     await user.type(input, '新值');
-    
+
     await waitFor(() => {
       expect(input.value).toBe('新值');
     });
@@ -94,10 +94,12 @@ describe('Form', () => {
     formRef.current?.resetFields();
 
     // 等待值更新
-    await waitFor(() => {
-      expect(input.value).toBe('初始值');
-      expect(handleReset).toHaveBeenCalled();
-    }, { timeout: 2000 });
+    await waitFor(
+      () => {
+        expect(input.value).toBe('初始值');
+        expect(handleReset).toHaveBeenCalled();
+      },
+      { timeout: 2000 }
+    );
   });
 });
-

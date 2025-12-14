@@ -5,11 +5,42 @@
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./button": {
+      "import": "./dist/button/index.esm.js",
+      "require": "./dist/button/index.js",
+      "types": "./dist/button/index.d.ts"
+    },
+    "./input": {
+      "import": "./dist/input/index.esm.js",
+      "require": "./dist/input/index.js",
+      "types": "./dist/input/index.d.ts"
+    },
+    "./select": {
+      "import": "./dist/select/index.esm.js",
+      "require": "./dist/select/index.js",
+      "types": "./dist/select/index.d.ts"
+    },
+    "./checkbox": {
+      "import": "./dist/checkbox/index.esm.js",
+      "require": "./dist/checkbox/index.js",
+      "types": "./dist/checkbox/index.d.ts"
+    },
+    "./datepicker": {
+      "import": "./dist/datepicker/index.esm.js",
+      "require": "./dist/datepicker/index.js",
+      "types": "./dist/datepicker/index.d.ts"
+    },
+    "./form": {
+      "import": "./dist/form/index.esm.js",
+      "require": "./dist/form/index.js",
+      "types": "./dist/form/index.d.ts"
     },
     "./package.json": "./package.json"
   },
@@ -53,4 +84,3 @@
     "vitest": "^1.0.4"
   }
 }
-

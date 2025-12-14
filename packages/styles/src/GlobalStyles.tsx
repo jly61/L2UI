@@ -22,7 +22,11 @@ interface GlobalStylesProps {
  * 全局样式组件
  * 提供样式重置、CSS 变量注入等功能
  */
-const GlobalStyle = createGlobalStyle<{ theme: Theme; enableReset?: boolean; enableCSSVariables?: boolean }>`
+const GlobalStyle = createGlobalStyle<{
+  theme: Theme;
+  enableReset?: boolean;
+  enableCSSVariables?: boolean;
+}>`
   ${(props) => (props.enableReset !== false ? globalReset : '')}
 
   ${(props) => {
@@ -42,8 +46,9 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = ({
   enableReset = true,
   enableCSSVariables = true,
 }) => {
-  return <GlobalStyle theme={theme} enableReset={enableReset} enableCSSVariables={enableCSSVariables} />;
+  return (
+    <GlobalStyle theme={theme} enableReset={enableReset} enableCSSVariables={enableCSSVariables} />
+  );
 };
 
 export default GlobalStyles;
-

@@ -17,10 +17,7 @@ function App() {
 ```tsx
 const [date, setDate] = useState<Date | null>(new Date());
 
-<DatePicker
-  value={date}
-  onChange={(newDate, dateString) => setDate(newDate)}
-/>
+<DatePicker value={date} onChange={(newDate, dateString) => setDate(newDate)} />;
 ```
 
 ## 非受控模式
@@ -66,17 +63,17 @@ const [date, setDate] = useState<Date | null>(new Date());
 
 ### DatePickerProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| size | 尺寸 | `'small' \| 'medium' \| 'large'` | `'medium'` |
-| placeholder | 占位提示 | `string` | `'请选择日期'` |
-| disabled | 是否禁用 | `boolean` | `false` |
-| block | 是否块级，撑满容器宽度 | `boolean` | `false` |
-| value | 受控值（Date 对象或字符串） | `Date \| string \| null` | - |
-| defaultValue | 非受控初始值（Date 对象或字符串） | `Date \| string \| null` | - |
-| format | 日期格式 | `DateFormat` | `'YYYY-MM-DD'` |
-| onChange | 值变化回调 | `(date: Date \| null, dateString: string) => void` | - |
-| datePickerRef | 外部 ref 透传 | `Ref<HTMLInputElement>` | - |
+| 属性          | 说明                              | 类型                                               | 默认值         |
+| ------------- | --------------------------------- | -------------------------------------------------- | -------------- |
+| size          | 尺寸                              | `'small' \| 'medium' \| 'large'`                   | `'medium'`     |
+| placeholder   | 占位提示                          | `string`                                           | `'请选择日期'` |
+| disabled      | 是否禁用                          | `boolean`                                          | `false`        |
+| block         | 是否块级，撑满容器宽度            | `boolean`                                          | `false`        |
+| value         | 受控值（Date 对象或字符串）       | `Date \| string \| null`                           | -              |
+| defaultValue  | 非受控初始值（Date 对象或字符串） | `Date \| string \| null`                           | -              |
+| format        | 日期格式                          | `DateFormat`                                       | `'YYYY-MM-DD'` |
+| onChange      | 值变化回调                        | `(date: Date \| null, dateString: string) => void` | -              |
+| datePickerRef | 外部 ref 透传                     | `Ref<HTMLInputElement>`                            | -              |
 
 ### DateFormat
 
@@ -93,4 +90,3 @@ type DateFormat = 'YYYY-MM-DD' | 'YYYY/MM/DD' | 'DD-MM-YYYY' | 'DD/MM/YYYY';
 - ✅ 点击外部关闭
 - ✅ 无障碍访问支持
 - ✅ 主题定制
-

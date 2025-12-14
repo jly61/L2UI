@@ -1,9 +1,5 @@
 import React, { forwardRef, useRef, useEffect } from 'react';
-import {
-  StyledCheckboxWrapper,
-  StyledCheckboxInput,
-  StyledCheckboxLabel,
-} from './Checkbox.styles';
+import { StyledCheckboxWrapper, StyledCheckboxInput, StyledCheckboxLabel } from './Checkbox.styles';
 import type { CheckboxProps } from './Checkbox.types';
 
 /**
@@ -67,4 +63,3 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;
-

@@ -5,6 +5,7 @@
 ## 🚀 常用命令
 
 ### 开发
+
 ```bash
 # 启动 Storybook（查看组件文档）
 pnpm --filter @l2ui/docs dev
@@ -17,6 +18,7 @@ pnpm dev
 ```
 
 ### 构建
+
 ```bash
 # 构建所有包
 pnpm build
@@ -28,6 +30,7 @@ pnpm --filter l2ui build
 ```
 
 ### 测试
+
 ```bash
 # 运行所有测试
 pnpm test
@@ -43,6 +46,7 @@ pnpm --filter @l2ui/components test:coverage
 ```
 
 ### 代码质量
+
 ```bash
 # ESLint 检查
 pnpm lint
@@ -58,6 +62,7 @@ pnpm type-check
 ```
 
 ### 清理
+
 ```bash
 # 清理所有构建产物
 pnpm clean
@@ -83,6 +88,7 @@ L2UI/
 ## 🔧 配置文件位置
 
 ### 根目录配置
+
 - `package.json` - 根 package.json，包含所有脚本
 - `pnpm-workspace.yaml` - pnpm workspace 配置
 - `tsconfig.json` - TypeScript 根配置
@@ -90,38 +96,45 @@ L2UI/
 - `.prettierrc` - Prettier 配置
 
 ### 包配置
+
 - `packages/*/package.json` - 各包的配置
 - `packages/*/vite.config.ts` - Vite 构建配置
 - `packages/*/tsconfig.json` - TypeScript 配置
 - `packages/*/vitest.config.ts` - 测试配置
 
 ### Storybook 配置
+
 - `apps/docs/.storybook/main.ts` - Storybook 主配置
 - `apps/docs/.storybook/preview.tsx` - Storybook 预览配置
 
 ## 📦 包说明
 
 ### @l2ui/components
+
 - **位置**: `packages/components/`
 - **职责**: 所有 UI 组件的实现
 - **导出**: 组件和类型
 
 ### @l2ui/utils
+
 - **位置**: `packages/utils/`
 - **职责**: 通用工具函数
 - **导出**: 工具函数
 
 ### @l2ui/styles
+
 - **位置**: `packages/styles/`
 - **职责**: 样式和主题系统
 - **导出**: 主题配置和类型
 
 ### l2ui
+
 - **位置**: `packages/l2ui/`
 - **职责**: 主入口包，统一导出
 - **导出**: 所有组件、工具、样式
 
 ### @l2ui/docs
+
 - **位置**: `apps/docs/`
 - **职责**: Storybook 文档站点
 - **用途**: 组件文档和示例
@@ -129,6 +142,7 @@ L2UI/
 ## 🎨 组件开发模板
 
 ### 创建新组件
+
 ```bash
 cd packages/components/src
 mkdir my-component
@@ -137,6 +151,7 @@ touch MyComponent.tsx MyComponent.styles.ts MyComponent.types.ts MyComponent.tes
 ```
 
 ### 组件文件结构
+
 ```
 my-component/
 ├── MyComponent.tsx          # 组件实现
@@ -161,6 +176,7 @@ import { defaultTheme } from '@l2ui/styles';
 ## 🎯 开发工作流
 
 ### 1. 开发新功能
+
 ```bash
 # 1. 创建功能分支
 git checkout -b feat/my-feature
@@ -180,6 +196,7 @@ git commit -m "feat: 添加新功能"
 ```
 
 ### 2. 添加新组件
+
 1. 在 `packages/components/src/` 创建组件目录
 2. 实现组件（参考 Button 组件）
 3. 在 `packages/components/src/index.ts` 导出
@@ -189,6 +206,7 @@ git commit -m "feat: 添加新功能"
 ## 🐛 常见问题
 
 ### Storybook 无法启动
+
 ```bash
 # 清理缓存
 rm -rf apps/docs/node_modules/.vite apps/docs/.storybook-static
@@ -201,16 +219,19 @@ pnpm --filter @l2ui/docs dev
 ```
 
 ### 测试失败
+
 - 确保使用 `vi.fn()` 而不是 `jest.fn()`
 - 检查测试环境配置（jsdom）
 - 查看测试文件路径是否正确
 
 ### 构建失败
+
 - 检查 TypeScript 错误：`pnpm type-check`
 - 检查依赖是否完整：`pnpm install`
 - 清理构建缓存：`pnpm clean`
 
 ### 类型错误
+
 - 确保所有类型正确导入
 - 检查 `tsconfig.json` 配置
 - 查看类型声明文件（`.d.ts`）
@@ -232,4 +253,3 @@ pnpm --filter @l2ui/docs dev
 ---
 
 **快速参考** - 需要详细说明请查看相关文档
-

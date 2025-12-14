@@ -48,4 +48,3 @@ const formatted = formatNumber(1234567); // "1,234,567"
 - `removeClass(element, className)` - 移除类名
 - `toggleClass(element, className)` - 切换类名
 - `hasClass(element, className)` - 检查类名
-

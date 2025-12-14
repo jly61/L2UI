@@ -76,4 +76,3 @@ export function isEmpty(value: unknown): boolean {
   }
   return false;
 }
-

@@ -1,5 +1,4 @@
 import type { Theme } from './types';
-import { darkTheme } from './dark';
 
 export const defaultTheme: Theme = {
   colors: {
@@ -64,4 +63,3 @@ export const defaultTheme: Theme = {
 
 export { defaultTheme as theme };
 export { darkTheme } from './dark';
-

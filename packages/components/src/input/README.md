@@ -36,16 +36,15 @@ const [value, setValue] = useState('受控值');
 
 ## API
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| value | 受控值 | `string` | - |
-| defaultValue | 非受控初始值 | `string` | - |
-| placeholder | 占位提示 | `string` | `'请输入'` |
-| disabled | 是否禁用 | `boolean` | `false` |
-| size | 尺寸 | `'small' \| 'medium' \| 'large'` | `'medium'` |
-| block | 是否块级，占满容器宽度 | `boolean` | `false` |
-| onChange | 值变化回调 | `(e: ChangeEvent<HTMLInputElement>) => void` | - |
-| inputRef | 透传 ref | `Ref<HTMLInputElement>` | - |
+| 属性         | 说明                   | 类型                                         | 默认值     |
+| ------------ | ---------------------- | -------------------------------------------- | ---------- |
+| value        | 受控值                 | `string`                                     | -          |
+| defaultValue | 非受控初始值           | `string`                                     | -          |
+| placeholder  | 占位提示               | `string`                                     | `'请输入'` |
+| disabled     | 是否禁用               | `boolean`                                    | `false`    |
+| size         | 尺寸                   | `'small' \| 'medium' \| 'large'`             | `'medium'` |
+| block        | 是否块级，占满容器宽度 | `boolean`                                    | `false`    |
+| onChange     | 值变化回调             | `(e: ChangeEvent<HTMLInputElement>) => void` | -          |
+| inputRef     | 透传 ref               | `Ref<HTMLInputElement>`                      | -          |
 
 > 支持所有原生 `input` 属性（通过继承 `InputHTMLAttributes`）。
-

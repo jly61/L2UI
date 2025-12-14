@@ -12,10 +12,17 @@ export default defineConfig({
     rollupOptions: {
       output: {
         globals: {},
+        exports: 'named',
+      },
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false,
+        tryCatchDeoptimization: false,
+        preset: 'smallest',
       },
     },
     sourcemap: true,
-    minify: false,
+    minify: 'esbuild',
+    target: 'es2020',
   },
 });
-

@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
@@ -36,4 +37,3 @@
     "vitest": "^1.0.4"
   }
 }
-

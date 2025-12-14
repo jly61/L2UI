@@ -16,7 +16,20 @@ import {
 import type { DatePickerProps, DateFormat } from './DatePicker.types';
 
 const WEEKDAYS = ['日', '一', '二', '三', '四', '五', '六'];
-const MONTHS = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+const MONTHS = [
+  '一月',
+  '二月',
+  '三月',
+  '四月',
+  '五月',
+  '六月',
+  '七月',
+  '八月',
+  '九月',
+  '十月',
+  '十一月',
+  '十二月',
+];
 
 /**
  * 格式化日期
@@ -49,7 +62,7 @@ const parseDate = (dateString: string, format: DateFormat): Date | null => {
   try {
     let year: number, month: number, day: number;
     const parts = dateString.split(/[-\/]/);
-    
+
     switch (format) {
       case 'YYYY-MM-DD':
       case 'YYYY/MM/DD':
@@ -66,7 +79,7 @@ const parseDate = (dateString: string, format: DateFormat): Date | null => {
       default:
         return null;
     }
-    
+
     const date = new Date(year, month, day);
     if (isNaN(date.getTime())) return null;
     return date;
@@ -141,15 +154,15 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           ? parseDate(value, format)
           : value
         : defaultValue
-        ? typeof defaultValue === 'string'
-          ? parseDate(defaultValue, format)
-          : defaultValue
-        : new Date();
+          ? typeof defaultValue === 'string'
+            ? parseDate(defaultValue, format)
+            : defaultValue
+          : new Date();
       return initialDate || new Date();
     });
     const [calendarPosition, setCalendarPosition] = useState({ top: 0, left: 0, width: 0 });
     const [calendarReady, setCalendarReady] = useState(false);
-    const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
 
     const isControlled = useMemo(() => value !== undefined, [value]);
@@ -230,7 +243,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = e.target.value;
       const parsedDate = parseDate(inputValue, format);
-      
+
       if (parsedDate) {
         if (!isControlled) {
           setInnerValue(parsedDate);
@@ -409,4 +422,3 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 DatePicker.displayName = 'DatePicker';
 
 export default DatePicker;
-

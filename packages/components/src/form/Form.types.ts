@@ -20,7 +20,10 @@ export interface FormRule {
   /**
    * 自定义验证函数
    */
-  validator?: (value: any, formValues: Record<string, any>) => boolean | string | Promise<boolean | string>;
+  validator?: (
+    value: any,
+    formValues: Record<string, any>
+  ) => boolean | string | Promise<boolean | string>;
   /**
    * 正则表达式验证
    */
@@ -73,7 +76,10 @@ export type FormValues = Record<string, any>;
 /**
  * 表单属性
  */
-export interface FormProps extends Omit<FormHTMLAttributes<HTMLFormElement>, 'onSubmit' | 'onReset'> {
+export interface FormProps extends Omit<
+  FormHTMLAttributes<HTMLFormElement>,
+  'onSubmit' | 'onReset'
+> {
   /**
    * 表单布局
    * @default 'vertical'
@@ -200,4 +206,3 @@ export interface FormInstance {
    */
   clearErrors: (name?: string) => void;
 }
-

@@ -23,7 +23,6 @@ export const FormItem: React.FC<FormItemProps> = ({
     values,
     errors,
     setFieldValue,
-    setFieldError,
     validateField,
     registerField,
   } = context;
@@ -52,11 +51,11 @@ export const FormItem: React.FC<FormItemProps> = ({
     if (valueOrEvent && typeof valueOrEvent === 'object' && 'target' in valueOrEvent) {
       value = valueOrEvent.target.value;
     }
-    
+
     if (name) {
       setFieldValue(name, value);
     }
-    
+
     // 调用原始 onChange
     if (isValidElement(children) && children.props.onChange) {
       children.props.onChange(valueOrEvent, ...args);
@@ -80,7 +79,11 @@ export const FormItem: React.FC<FormItemProps> = ({
   // 如果字段有 name，始终传递 value，确保组件是受控的
   const childElement = isValidElement(children)
     ? cloneElement(children as React.ReactElement<any>, {
-        ...(name !== undefined ? { value: fieldValue ?? '' } : children.props.value !== undefined ? { value: children.props.value } : {}),
+        ...(name !== undefined
+          ? { value: fieldValue ?? '' }
+          : children.props.value !== undefined
+            ? { value: children.props.value }
+            : {}),
         onChange: handleChange,
         onBlur: handleBlur,
         ...(fieldError && { 'aria-invalid': true }),
@@ -90,7 +93,12 @@ export const FormItem: React.FC<FormItemProps> = ({
   const finalLabelWidth = labelWidth || formLabelWidth;
 
   return (
-    <StyledFormItem $layout={layout} $labelWidth={finalLabelWidth} className={className} style={style}>
+    <StyledFormItem
+      $layout={layout}
+      $labelWidth={finalLabelWidth}
+      className={className}
+      style={style}
+    >
       {label && (
         <StyledFormLabel
           $layout={layout}
@@ -112,4 +120,3 @@ export const FormItem: React.FC<FormItemProps> = ({
 FormItem.displayName = 'FormItem';
 
 export default FormItem;
-

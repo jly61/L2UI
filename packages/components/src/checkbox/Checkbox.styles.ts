@@ -69,8 +69,7 @@ export const StyledCheckboxInput = styled.input<StyledCheckboxProps>`
   &:focus {
     outline: none;
     border-color: ${(props) => props.theme.colors?.primary || '#1890ff'};
-    box-shadow: 0 0 0 2px
-      ${(props) => props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
+    box-shadow: 0 0 0 2px ${(props) => props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
   }
 
   &:checked {
@@ -84,8 +83,10 @@ export const StyledCheckboxInput = styled.input<StyledCheckboxProps>`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    width: ${(props) => (props.$size === 'small' ? '4px' : props.$size === 'large' ? '6px' : '5px')};
-    height: ${(props) => (props.$size === 'small' ? '8px' : props.$size === 'large' ? '10px' : '9px')};
+    width: ${(props) =>
+      props.$size === 'small' ? '4px' : props.$size === 'large' ? '6px' : '5px'};
+    height: ${(props) =>
+      props.$size === 'small' ? '8px' : props.$size === 'large' ? '10px' : '9px'};
     border: 2px solid #fff;
     border-top: none;
     border-left: none;
@@ -117,7 +118,9 @@ export const StyledCheckboxInput = styled.input<StyledCheckboxProps>`
 `;
 
 export const StyledCheckboxLabel = styled.span<{ $size: CheckboxSize; $disabled: boolean }>`
-  color: ${(props) => (props.$disabled ? props.theme.colors?.textSecondary || '#888' : props.theme.colors?.text || '#000')};
+  color: ${(props) =>
+    props.$disabled
+      ? props.theme.colors?.textSecondary || '#888'
+      : props.theme.colors?.text || '#000'};
   ${(props) => sizeLabelStyles[props.$size]}
 `;
-

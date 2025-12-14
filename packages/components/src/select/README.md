@@ -23,48 +23,40 @@ function App() {
 ```tsx
 const [value, setValue] = useState('1');
 
-<Select
-  options={options}
-  value={value}
-  onChange={(val, option) => setValue(val)}
-/>
+<Select options={options} value={value} onChange={(val, option) => setValue(val)} />;
 ```
 
 ## 非受控模式
 
 ```tsx
-<Select
-  options={options}
-  defaultValue="1"
-  onChange={(val, option) => console.log(val, option)}
-/>
+<Select options={options} defaultValue="1" onChange={(val, option) => console.log(val, option)} />
 ```
 
 ## API
 
 ### SelectProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| options | 选项列表 | `SelectOption[]` | `[]` |
-| size | 尺寸 | `'small' \| 'medium' \| 'large'` | `'medium'` |
-| placeholder | 占位提示 | `string` | `'请选择'` |
-| disabled | 是否禁用 | `boolean` | `false` |
-| block | 是否块级，撑满容器宽度 | `boolean` | `false` |
-| value | 受控值 | `string \| number` | - |
-| defaultValue | 非受控初始值 | `string \| number` | - |
-| onChange | 值变化回调 | `(value: string \| number, option: SelectOption) => void` | - |
-| selectRef | 外部 ref 透传 | `Ref<HTMLDivElement>` | - |
-| className | 自定义类名 | `string` | - |
-| style | 自定义样式 | `React.CSSProperties` | - |
+| 属性         | 说明                   | 类型                                                      | 默认值     |
+| ------------ | ---------------------- | --------------------------------------------------------- | ---------- |
+| options      | 选项列表               | `SelectOption[]`                                          | `[]`       |
+| size         | 尺寸                   | `'small' \| 'medium' \| 'large'`                          | `'medium'` |
+| placeholder  | 占位提示               | `string`                                                  | `'请选择'` |
+| disabled     | 是否禁用               | `boolean`                                                 | `false`    |
+| block        | 是否块级，撑满容器宽度 | `boolean`                                                 | `false`    |
+| value        | 受控值                 | `string \| number`                                        | -          |
+| defaultValue | 非受控初始值           | `string \| number`                                        | -          |
+| onChange     | 值变化回调             | `(value: string \| number, option: SelectOption) => void` | -          |
+| selectRef    | 外部 ref 透传          | `Ref<HTMLDivElement>`                                     | -          |
+| className    | 自定义类名             | `string`                                                  | -          |
+| style        | 自定义样式             | `React.CSSProperties`                                     | -          |
 
 ### SelectOption
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| value | 选项值 | `string \| number` | - |
-| label | 选项标签 | `string` | - |
-| disabled | 是否禁用 | `boolean` | `false` |
+| 属性     | 说明     | 类型               | 默认值  |
+| -------- | -------- | ------------------ | ------- |
+| value    | 选项值   | `string \| number` | -       |
+| label    | 选项标签 | `string`           | -       |
+| disabled | 是否禁用 | `boolean`          | `false` |
 
 ## 特性
 
@@ -74,4 +66,3 @@ const [value, setValue] = useState('1');
 - ✅ 禁用选项支持
 - ✅ 无障碍访问支持
 - ✅ 主题定制
-

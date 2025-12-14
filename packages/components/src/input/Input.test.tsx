@@ -42,4 +42,3 @@ describe('Input', () => {
     expect(input).toBeDisabled();
   });
 });
-

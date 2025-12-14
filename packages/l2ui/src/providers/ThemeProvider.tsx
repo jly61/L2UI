@@ -38,11 +38,14 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
   return (
     <StyledThemeProvider theme={mergedTheme}>
-      <GlobalStyles theme={mergedTheme} enableReset={enableReset} enableCSSVariables={enableCSSVariables} />
+      <GlobalStyles
+        theme={mergedTheme}
+        enableReset={enableReset}
+        enableCSSVariables={enableCSSVariables}
+      />
       {children}
     </StyledThemeProvider>
   );
 };
 
 ThemeProvider.displayName = 'ThemeProvider';
-

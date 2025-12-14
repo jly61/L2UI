@@ -159,52 +159,52 @@ function App() {
 
 ### FormProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| layout | 表单布局 | `'horizontal' \| 'vertical' \| 'inline'` | `'vertical'` |
-| labelWidth | 标签宽度（horizontal 布局时有效） | `number \| string` | - |
-| initialValues | 初始值 | `FormValues` | `{}` |
-| fields | 表单字段配置 | `FormField[]` | `[]` |
-| onSubmit | 提交回调 | `(values: FormValues) => void \| Promise<void>` | - |
-| onReset | 重置回调 | `() => void` | - |
-| onValuesChange | 值变化回调 | `(changedValues: FormValues, allValues: FormValues) => void` | - |
+| 属性           | 说明                              | 类型                                                         | 默认值       |
+| -------------- | --------------------------------- | ------------------------------------------------------------ | ------------ |
+| layout         | 表单布局                          | `'horizontal' \| 'vertical' \| 'inline'`                     | `'vertical'` |
+| labelWidth     | 标签宽度（horizontal 布局时有效） | `number \| string`                                           | -            |
+| initialValues  | 初始值                            | `FormValues`                                                 | `{}`         |
+| fields         | 表单字段配置                      | `FormField[]`                                                | `[]`         |
+| onSubmit       | 提交回调                          | `(values: FormValues) => void \| Promise<void>`              | -            |
+| onReset        | 重置回调                          | `() => void`                                                 | -            |
+| onValuesChange | 值变化回调                        | `(changedValues: FormValues, allValues: FormValues) => void` | -            |
 
 ### FormItemProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| name | 字段名 | `string` | - |
-| label | 标签文本 | `string` | - |
-| rules | 验证规则 | `FormRule[]` | `[]` |
-| required | 是否必填（快捷方式） | `boolean` | `false` |
-| labelWidth | 标签宽度（horizontal 布局时有效） | `number \| string` | - |
+| 属性       | 说明                              | 类型               | 默认值  |
+| ---------- | --------------------------------- | ------------------ | ------- |
+| name       | 字段名                            | `string`           | -       |
+| label      | 标签文本                          | `string`           | -       |
+| rules      | 验证规则                          | `FormRule[]`       | `[]`    |
+| required   | 是否必填（快捷方式）              | `boolean`          | `false` |
+| labelWidth | 标签宽度（horizontal 布局时有效） | `number \| string` | -       |
 
 ### FormRule
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| required | 是否必填 | `boolean` | `false` |
-| message | 错误提示信息 | `string` | - |
-| validator | 自定义验证函数 | `(value: any, formValues: FormValues) => boolean \| string \| Promise<boolean \| string>` | - |
-| pattern | 正则表达式验证 | `RegExp` | - |
-| min | 最小长度/最小值 | `number` | - |
-| max | 最大长度/最大值 | `number` | - |
-| type | 类型验证 | `'string' \| 'number' \| 'email' \| 'url'` | - |
+| 属性      | 说明            | 类型                                                                                      | 默认值  |
+| --------- | --------------- | ----------------------------------------------------------------------------------------- | ------- |
+| required  | 是否必填        | `boolean`                                                                                 | `false` |
+| message   | 错误提示信息    | `string`                                                                                  | -       |
+| validator | 自定义验证函数  | `(value: any, formValues: FormValues) => boolean \| string \| Promise<boolean \| string>` | -       |
+| pattern   | 正则表达式验证  | `RegExp`                                                                                  | -       |
+| min       | 最小长度/最小值 | `number`                                                                                  | -       |
+| max       | 最大长度/最大值 | `number`                                                                                  | -       |
+| type      | 类型验证        | `'string' \| 'number' \| 'email' \| 'url'`                                                | -       |
 
 ### FormInstance
 
-| 方法 | 说明 | 类型 |
-|------|------|------|
-| getFieldsValue | 获取所有字段值 | `() => FormValues` |
-| getFieldValue | 获取指定字段值 | `(name: string) => any` |
-| setFieldValue | 设置字段值 | `(name: string, value: any) => void` |
-| setFieldsValue | 设置多个字段值 | `(values: FormValues) => void` |
-| resetFields | 重置表单 | `() => void` |
-| validateFields | 验证所有字段 | `() => Promise<FormValues>` |
-| validateField | 验证指定字段 | `(name: string) => Promise<any>` |
-| getFieldError | 获取字段错误 | `(name: string) => string \| undefined` |
-| getFieldsError | 获取所有字段错误 | `() => Record<string, string>` |
-| clearErrors | 清除错误 | `(name?: string) => void` |
+| 方法           | 说明             | 类型                                    |
+| -------------- | ---------------- | --------------------------------------- |
+| getFieldsValue | 获取所有字段值   | `() => FormValues`                      |
+| getFieldValue  | 获取指定字段值   | `(name: string) => any`                 |
+| setFieldValue  | 设置字段值       | `(name: string, value: any) => void`    |
+| setFieldsValue | 设置多个字段值   | `(values: FormValues) => void`          |
+| resetFields    | 重置表单         | `() => void`                            |
+| validateFields | 验证所有字段     | `() => Promise<FormValues>`             |
+| validateField  | 验证指定字段     | `(name: string) => Promise<any>`        |
+| getFieldError  | 获取字段错误     | `(name: string) => string \| undefined` |
+| getFieldsError | 获取所有字段错误 | `() => Record<string, string>`          |
+| clearErrors    | 清除错误         | `(name?: string) => void`               |
 
 ## 特性
 
@@ -215,4 +215,3 @@ function App() {
 - ✅ 值变化监听
 - ✅ 错误提示
 - ✅ 主题定制
-

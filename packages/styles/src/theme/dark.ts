@@ -63,4 +63,3 @@ export const darkTheme: Theme = {
     xxl: '1600px',
   },
 };
-

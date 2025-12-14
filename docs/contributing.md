@@ -40,6 +40,7 @@ git checkout -b fix/your-bug-fix
 ```
 
 分支命名规范：
+
 - `feat/`: 新功能
 - `fix/`: Bug 修复
 - `docs/`: 文档更新
@@ -214,7 +215,7 @@ describe('Button', () => {
   it('应该响应点击事件', async () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>点击我</Button>);
-    
+
     await userEvent.click(screen.getByText('点击我'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
@@ -243,8 +244,8 @@ describe('Button', () => {
 
 ### Props
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
+| 属性  | 说明 | 类型 | 默认值       |
+| ----- | ---- | ---- | ------------ |
 | prop1 | 描述 | type | defaultValue |
 
 ## 示例
@@ -393,4 +394,3 @@ pnpm type-check
 ---
 
 如有任何问题，请随时提出 Issue 或联系维护者。
-

@@ -12,4 +12,3 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ theme, children 
 };
 
 ConfigProvider.displayName = 'ConfigProvider';
-

@@ -57,8 +57,7 @@ export const StyledDatePickerInput = styled.input<StyledDatePickerProps>`
 
   &:focus:not(:disabled) {
     border-color: ${(props) => props.theme.colors?.primary || '#1890ff'};
-    box-shadow: 0 0 0 2px
-      ${(props) => props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
+    box-shadow: 0 0 0 2px ${(props) => props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
   }
 
   &:disabled {
@@ -83,7 +82,13 @@ export const StyledDatePickerIcon = styled.span`
   cursor: pointer;
 `;
 
-export const StyledCalendar = styled.div<{ $open: boolean; $top: number; $left: number; $width: number; $ready: boolean }>`
+export const StyledCalendar = styled.div<{
+  $open: boolean;
+  $top: number;
+  $left: number;
+  $width: number;
+  $ready: boolean;
+}>`
   position: fixed;
   top: ${(props) => props.$top}px;
   left: ${(props) => props.$left}px;
@@ -210,4 +215,3 @@ export const StyledCalendarDay = styled.button<{
     cursor: not-allowed;
   }
 `;
-

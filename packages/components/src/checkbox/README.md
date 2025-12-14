@@ -17,21 +17,15 @@ function App() {
 ```tsx
 const [checked, setChecked] = useState(false);
 
-<Checkbox
-  checked={checked}
-  onChange={(checked) => setChecked(checked)}
->
+<Checkbox checked={checked} onChange={(checked) => setChecked(checked)}>
   受控复选框
-</Checkbox>
+</Checkbox>;
 ```
 
 ## 非受控模式
 
 ```tsx
-<Checkbox
-  defaultChecked={false}
-  onChange={(checked) => console.log(checked)}
->
+<Checkbox defaultChecked={false} onChange={(checked) => console.log(checked)}>
   非受控复选框
 </Checkbox>
 ```
@@ -39,9 +33,7 @@ const [checked, setChecked] = useState(false);
 ## 不确定状态
 
 ```tsx
-<Checkbox indeterminate>
-  不确定状态
-</Checkbox>
+<Checkbox indeterminate>不确定状态</Checkbox>
 ```
 
 ## 禁用状态
@@ -69,36 +61,38 @@ const options = [
   { value: 'banana', label: '香蕉' },
 ];
 
-{options.map((option) => (
-  <Checkbox
-    key={option.value}
-    checked={checkedList.includes(option.value)}
-    onChange={(checked) => {
-      if (checked) {
-        setCheckedList([...checkedList, option.value]);
-      } else {
-        setCheckedList(checkedList.filter(item => item !== option.value));
-      }
-    }}
-  >
-    {option.label}
-  </Checkbox>
-))}
+{
+  options.map((option) => (
+    <Checkbox
+      key={option.value}
+      checked={checkedList.includes(option.value)}
+      onChange={(checked) => {
+        if (checked) {
+          setCheckedList([...checkedList, option.value]);
+        } else {
+          setCheckedList(checkedList.filter((item) => item !== option.value));
+        }
+      }}
+    >
+      {option.label}
+    </Checkbox>
+  ));
+}
 ```
 
 ## API
 
 ### CheckboxProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| size | 尺寸 | `'small' \| 'medium' \| 'large'` | `'medium'` |
-| checked | 是否选中（受控） | `boolean` | - |
-| defaultChecked | 是否默认选中（非受控） | `boolean` | `false` |
-| disabled | 是否禁用 | `boolean` | `false` |
-| indeterminate | 是否不确定状态 | `boolean` | `false` |
-| onChange | 变化回调 | `(checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void` | - |
-| children | 标签文本 | `ReactNode` | - |
+| 属性           | 说明                   | 类型                                                                     | 默认值     |
+| -------------- | ---------------------- | ------------------------------------------------------------------------ | ---------- |
+| size           | 尺寸                   | `'small' \| 'medium' \| 'large'`                                         | `'medium'` |
+| checked        | 是否选中（受控）       | `boolean`                                                                | -          |
+| defaultChecked | 是否默认选中（非受控） | `boolean`                                                                | `false`    |
+| disabled       | 是否禁用               | `boolean`                                                                | `false`    |
+| indeterminate  | 是否不确定状态         | `boolean`                                                                | `false`    |
+| onChange       | 变化回调               | `(checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void` | -          |
+| children       | 标签文本               | `ReactNode`                                                              | -          |
 
 ## 特性
 
@@ -108,4 +102,3 @@ const options = [
 - ✅ 无障碍访问支持
 - ✅ 主题定制
 - ✅ 多种尺寸
-

@@ -7,22 +7,26 @@ L2UI 采用 Monorepo 架构，使用 pnpm workspaces 进行包管理。整个项
 ## 架构原则
 
 ### 1. 模块化设计
+
 - 每个组件都是独立的模块
 - 组件之间低耦合，高内聚
 - 支持按需加载
 
 ### 2. 类型安全
+
 - 全面使用 TypeScript
 - 严格的类型检查
 - 完整的类型定义导出
 
 ### 3. 性能优化
+
 - Tree-shaking 支持
 - 按需加载
 - 代码分割
 - 懒加载支持
 
 ### 4. 可维护性
+
 - 清晰的代码结构
 - 完善的文档
 - 统一的代码规范
@@ -47,29 +51,35 @@ L2UI/
 ### 包职责划分
 
 #### @l2ui/components
+
 **职责**: 所有 UI 组件的实现
 
 **特点**:
+
 - 每个组件独立目录
 - 包含组件代码、样式、测试、文档
 - 不依赖其他业务逻辑包
 - 可以独立构建和测试
 
 **依赖关系**:
+
 - 依赖 `@l2ui/utils`（工具函数）
 - 依赖 `@l2ui/styles`（主题样式）
 - 不依赖 `l2ui`（主入口包）
 
 #### @l2ui/utils
+
 **职责**: 通用工具函数
 
 **特点**:
+
 - 纯函数，无副作用
 - 不依赖 React
 - 可以独立使用
 - 完整的类型定义
 
 **包含内容**:
+
 - 类型判断函数
 - 格式化函数
 - 数据处理函数
@@ -77,39 +87,47 @@ L2UI/
 - 事件处理工具
 
 #### @l2ui/styles
+
 **职责**: 样式和主题系统
 
 **特点**:
+
 - 主题配置
 - 全局样式
 - CSS 变量定义
 - 主题切换支持
 
 **包含内容**:
+
 - 主题配置（颜色、字体、间距等）
 - 全局样式重置
 - 动画定义
 - 响应式断点
 
 #### l2ui（主入口包）
+
 **职责**: 统一导出所有组件和工具
 
 **特点**:
+
 - 聚合所有组件
 - 提供统一的 API
 - 处理样式注入
 - 配置全局设置
 
 **功能**:
+
 - 导出所有组件
 - 导出工具函数
 - 提供 ConfigProvider（全局配置）
 - 提供主题切换功能
 
 #### @l2ui/docs
+
 **职责**: 组件文档和示例
 
 **特点**:
+
 - 基于 Storybook
 - 交互式文档
 - 代码示例
@@ -136,6 +154,7 @@ components/
 ### 2. 组件 API 设计原则
 
 #### 受控/非受控模式
+
 组件同时支持受控和非受控两种模式：
 
 ```tsx
@@ -148,6 +167,7 @@ const [value, setValue] = useState('');
 ```
 
 #### 组合优于配置
+
 优先使用组合模式，而非大量配置项：
 
 ```tsx
@@ -163,6 +183,7 @@ const [value, setValue] = useState('');
 ```
 
 #### 一致的命名
+
 - Props 命名遵循 React 约定
 - 事件处理使用 `on` 前缀
 - 布尔值使用 `is` 或 `has` 前缀
@@ -176,14 +197,16 @@ const [value, setValue] = useState('');
 const StyledButton = styled.button`
   padding: 8px 16px;
   border-radius: 4px;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 // 变体样式
 const Button = styled(StyledButton)<{ variant: 'primary' | 'secondary' }>`
-  ${props => props.variant === 'primary' && css`
-    background-color: ${props.theme.colors.primary};
-  `}
+  ${(props) =>
+    props.variant === 'primary' &&
+    css`
+      background-color: ${props.theme.colors.primary};
+    `}
 `;
 ```
 
@@ -208,7 +231,7 @@ const theme = {
 // 使用主题
 <ThemeProvider theme={theme}>
   <App />
-</ThemeProvider>
+</ThemeProvider>;
 ```
 
 ## 数据流设计
@@ -398,4 +421,3 @@ dist/
 - 设计系统完善
 - 主题定制工具
 - 可视化配置平台
-

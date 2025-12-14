@@ -69,8 +69,7 @@ export const StyledSelectTrigger = styled.div<StyledSelectProps>`
     props.$open &&
     css`
       border-color: ${props.theme.colors?.primary || '#1890ff'};
-      box-shadow: 0 0 0 2px
-        ${props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
+      box-shadow: 0 0 0 2px ${props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
     `}
 
   ${(props) =>
@@ -103,7 +102,12 @@ export const StyledSelectIcon = styled.span<{ $open: boolean }>`
   font-size: 12px;
 `;
 
-export const StyledSelectDropdown = styled.div<{ $open: boolean; $top: number; $left: number; $width: number }>`
+export const StyledSelectDropdown = styled.div<{
+  $open: boolean;
+  $top: number;
+  $left: number;
+  $width: number;
+}>`
   position: fixed;
   top: ${(props) => props.$top}px;
   left: ${(props) => props.$left}px;
@@ -124,9 +128,7 @@ export const StyledOption = styled.div<StyledOptionProps>`
   cursor: ${(props) => (props.$disabled ? 'not-allowed' : 'pointer')};
   color: ${(props) => props.theme.colors?.text || '#000'};
   background-color: ${(props) =>
-    props.$selected
-      ? props.theme.colors?.hover || 'rgba(0, 0, 0, 0.06)'
-      : 'transparent'};
+    props.$selected ? props.theme.colors?.hover || 'rgba(0, 0, 0, 0.06)' : 'transparent'};
   transition: background-color 0.2s ease;
   font-size: 14px;
 
@@ -141,4 +143,3 @@ export const StyledOption = styled.div<StyledOptionProps>`
       cursor: not-allowed;
     `}
 `;
-

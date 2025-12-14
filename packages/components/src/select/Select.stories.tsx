@@ -83,11 +83,7 @@ export const Controlled: Story = {
     const [value, setValue] = useState<string | number>('1');
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <Select
-          options={basicOptions}
-          value={value}
-          onChange={(val) => setValue(val)}
-        />
+        <Select options={basicOptions} value={value} onChange={(val) => setValue(val)} />
         <div style={{ fontSize: 12, color: '#666' }}>当前值：{value}</div>
       </div>
     );

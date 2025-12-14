@@ -72,4 +72,3 @@ describe('Button', () => {
     expect(button).toHaveStyle({ display: 'block', width: '100%' });
   });
 });
-

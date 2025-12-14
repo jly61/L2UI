@@ -50,8 +50,5 @@ const customTheme = {
   },
 };
 
-<ConfigProvider theme={customTheme}>
-  {/* 你的应用 */}
-</ConfigProvider>
+<ConfigProvider theme={customTheme}>{/* 你的应用 */}</ConfigProvider>;
 ```
-

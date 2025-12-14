@@ -67,6 +67,7 @@ pnpm dev
 ```
 
 这会启动所有包的开发模式，包括：
+
 - 组件包的开发模式（监听文件变化）
 - 文档站点的开发服务器
 
@@ -95,6 +96,7 @@ pnpm --filter @l2ui/docs dev
 ```
 
 在 Storybook 中：
+
 - 查看所有组件
 - 测试组件交互
 - 查看组件 API
@@ -104,6 +106,7 @@ pnpm --filter @l2ui/docs dev
 ### 热模块替换 (HMR)
 
 开发模式下支持 HMR：
+
 - 修改组件代码自动刷新
 - 修改样式实时更新
 - 保持组件状态（如可能）
@@ -200,7 +203,7 @@ export const StyledButton = styled.button<{
   cursor: pointer;
   transition: all 0.3s;
 
-  ${props => {
+  ${(props) => {
     // 根据 type 设置样式
     switch (props.type) {
       case 'primary':
@@ -213,15 +216,24 @@ export const StyledButton = styled.button<{
     }
   }}
 
-  ${props => {
+  ${(props) => {
     // 根据 size 设置样式
     switch (props.size) {
       case 'small':
-        return css`padding: 4px 8px; font-size: 12px;`;
+        return css`
+          padding: 4px 8px;
+          font-size: 12px;
+        `;
       case 'large':
-        return css`padding: 12px 24px; font-size: 16px;`;
+        return css`
+          padding: 12px 24px;
+          font-size: 16px;
+        `;
       default:
-        return css`padding: 8px 16px; font-size: 14px;`;
+        return css`
+          padding: 8px 16px;
+          font-size: 14px;
+        `;
     }
   }}
 `;
@@ -245,7 +257,7 @@ describe('Button', () => {
   it('应该响应点击事件', async () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>点击我</Button>);
-    
+
     await userEvent.click(screen.getByText('点击我'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
@@ -432,6 +444,7 @@ pnpm type-check
 ### React DevTools
 
 安装 React DevTools 浏览器扩展，用于：
+
 - 查看组件树
 - 检查组件 Props 和 State
 - 性能分析
@@ -559,4 +572,3 @@ pnpm install
 - 查看 [技术选型文档](./tech-stack.md) 了解技术栈
 
 如有开发相关问题，请提交 Issue 或查看相关文档。
-

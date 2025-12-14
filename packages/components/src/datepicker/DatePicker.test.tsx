@@ -65,4 +65,3 @@ describe('DatePicker', () => {
     expect(datePicker).toHaveStyle({ width: '100%' });
   });
 });
-

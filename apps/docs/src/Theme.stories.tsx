@@ -21,9 +21,7 @@ const ThemeDemo: React.FC<ThemeDemoProps> = ({ themeMode, enableReset, enableCSS
     <ThemeProvider theme={isDark ? darkTheme : defaultTheme}>
       <div style={{ padding: '24px', background: theme.colors.background, minHeight: '400px' }}>
         <div style={{ marginBottom: '24px' }}>
-          <Button onClick={() => setIsDark(!isDark)}>
-            切换到{isDark ? '亮色' : '暗色'}主题
-          </Button>
+          <Button onClick={() => setIsDark(!isDark)}>切换到{isDark ? '亮色' : '暗色'}主题</Button>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
           <Input placeholder="输入框示例" />
@@ -38,7 +36,14 @@ const ThemeDemo: React.FC<ThemeDemoProps> = ({ themeMode, enableReset, enableCSS
           <Button type="primary">主要按钮</Button>
           <Button>默认按钮</Button>
         </div>
-        <div style={{ marginTop: '24px', padding: '16px', background: theme.colors.hover, borderRadius: '4px' }}>
+        <div
+          style={{
+            marginTop: '24px',
+            padding: '16px',
+            background: theme.colors.hover,
+            borderRadius: '4px',
+          }}
+        >
           <div style={{ fontSize: '12px', color: theme.colors.textSecondary }}>
             全局样式重置: {enableReset ? '已启用' : '已禁用'}
           </div>
@@ -107,9 +112,7 @@ export const ThemeSwitcher: Story = {
       <ThemeProvider theme={theme}>
         <div style={{ padding: '24px', background: theme.colors.background, minHeight: '400px' }}>
           <div style={{ marginBottom: '24px' }}>
-            <Button onClick={() => setIsDark(!isDark)}>
-              切换到{isDark ? '亮色' : '暗色'}主题
-            </Button>
+            <Button onClick={() => setIsDark(!isDark)}>切换到{isDark ? '亮色' : '暗色'}主题</Button>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
             <Input placeholder="输入框示例" />
@@ -136,7 +139,13 @@ export const ColorTokens: Story = {
       <ThemeProvider theme={defaultTheme}>
         <div style={{ padding: '24px' }}>
           <h2 style={{ marginBottom: '16px' }}>颜色 Token</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+              gap: '16px',
+            }}
+          >
             {Object.entries(defaultTheme.colors).map(([key, value]) => (
               <div key={key} style={{ textAlign: 'center' }}>
                 <div
@@ -187,4 +196,3 @@ export const SpacingTokens: Story = {
     );
   },
 };
-

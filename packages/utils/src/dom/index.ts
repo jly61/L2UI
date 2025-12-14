@@ -35,4 +35,3 @@ export function toggleClass(element: HTMLElement, className: string): void {
 export function hasClass(element: HTMLElement, className: string): boolean {
   return element.classList.contains(className);
 }
-

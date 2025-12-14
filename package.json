@@ -17,7 +17,13 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "type-check": "pnpm --recursive --filter \"./packages/*\" type-check",
     "clean": "pnpm --recursive --filter \"./packages/*\" clean",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release:alpha": "node scripts/release.js alpha",
+    "release:beta": "node scripts/release.js beta",
+    "release:stable": "node scripts/release.js stable",
+    "release:patch": "node scripts/release.js patch",
+    "release:minor": "node scripts/release.js minor",
+    "release:major": "node scripts/release.js major"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
@@ -42,4 +48,3 @@
   },
   "packageManager": "pnpm@8.15.0"
 }
-

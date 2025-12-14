@@ -8,8 +8,10 @@ export type CheckboxSize = 'small' | 'medium' | 'large';
 /**
  * 复选框属性
  */
-export interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type' | 'onChange'> {
+export interface CheckboxProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'type' | 'onChange'
+> {
   /**
    * 尺寸
    * @default 'medium'
@@ -42,4 +44,3 @@ export interface CheckboxProps
    */
   children?: ReactNode;
 }
-

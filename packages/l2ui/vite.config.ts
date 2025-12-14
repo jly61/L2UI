@@ -12,7 +12,14 @@ export default defineConfig({
       fileName: (format) => `index.${format === 'es' ? 'esm' : 'js'}`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components', '@l2ui/components', '@l2ui/utils', '@l2ui/styles'],
+      external: [
+        'react',
+        'react-dom',
+        'styled-components',
+        '@l2ui/components',
+        '@l2ui/utils',
+        '@l2ui/styles',
+      ],
       output: {
         globals: {
           react: 'React',
@@ -25,4 +32,3 @@ export default defineConfig({
     minify: false,
   },
 });
-

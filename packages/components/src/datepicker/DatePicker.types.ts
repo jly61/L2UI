@@ -13,8 +13,10 @@ export type DateFormat = 'YYYY-MM-DD' | 'YYYY/MM/DD' | 'DD-MM-YYYY' | 'DD/MM/YYY
 /**
  * 日期选择器属性
  */
-export interface DatePickerProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'value' | 'onChange' | 'defaultValue'> {
+export interface DatePickerProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'value' | 'onChange' | 'defaultValue'
+> {
   /**
    * 尺寸
    * @default 'medium'
@@ -57,4 +59,3 @@ export interface DatePickerProps
    */
   datePickerRef?: React.Ref<HTMLInputElement>;
 }
-

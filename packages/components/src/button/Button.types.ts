@@ -35,4 +35,3 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
    */
   ghost?: boolean;
 }
-

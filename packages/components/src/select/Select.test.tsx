@@ -28,9 +28,7 @@ describe('Select', () => {
 
   it('应该支持受控模式', () => {
     const handleChange = vi.fn();
-    renderWithTheme(
-      <Select options={options} value="1" onChange={handleChange} />
-    );
+    renderWithTheme(<Select options={options} value="1" onChange={handleChange} />);
     expect(screen.getByText('选项一')).toBeInTheDocument();
   });
 
@@ -79,9 +77,7 @@ describe('Select', () => {
     ];
     const handleChange = vi.fn();
 
-    renderWithTheme(
-      <Select options={disabledOptions} onChange={handleChange} />
-    );
+    renderWithTheme(<Select options={disabledOptions} onChange={handleChange} />);
 
     const trigger = screen.getByRole('combobox');
     await user.click(trigger);
@@ -94,11 +90,8 @@ describe('Select', () => {
   });
 
   it('应该支持块级模式', () => {
-    const { container } = renderWithTheme(
-      <Select options={options} block />
-    );
+    const { container } = renderWithTheme(<Select options={options} block />);
     const select = container.firstChild as HTMLElement;
     expect(select).toHaveStyle({ width: '100%' });
   });
 });
-

@@ -118,4 +118,3 @@ export const StyledFormError = styled.div`
   line-height: 1.5;
   min-height: 20px;
 `;
-

@@ -1,7 +1,15 @@
-import React, { useRef, useState, useCallback, useImperativeHandle, forwardRef, useEffect, useMemo } from 'react';
+import React, {
+  useRef,
+  useState,
+  useCallback,
+  useImperativeHandle,
+  forwardRef,
+  useEffect,
+  useMemo,
+} from 'react';
 import { StyledForm } from './Form.styles';
 import { FormContext } from './FormContext';
-import type { FormProps, FormInstance, FormValues, FormRule, FormField } from './Form.types';
+import type { FormProps, FormInstance, FormValues, FormRule } from './Form.types';
 
 /**
  * 验证字段值
@@ -146,13 +154,16 @@ export const Form = forwardRef<FormInstance, FormProps>(
     );
 
     // 设置多个字段值
-    const setFieldsValue = useCallback((newValues: FormValues) => {
-      setValues((prev) => {
-        const updated = { ...prev, ...newValues };
-        onValuesChange?.(newValues, updated);
-        return updated;
-      });
-    }, [onValuesChange]);
+    const setFieldsValue = useCallback(
+      (newValues: FormValues) => {
+        setValues((prev) => {
+          const updated = { ...prev, ...newValues };
+          onValuesChange?.(newValues, updated);
+          return updated;
+        });
+      },
+      [onValuesChange]
+    );
 
     // 设置字段错误
     const setFieldError = useCallback((name: string, error: string | undefined) => {
@@ -190,7 +201,7 @@ export const Form = forwardRef<FormInstance, FormProps>(
         const rules = fieldRulesRef.current[name] || [];
         const value = values[name];
         const error = await validateValue(value, rules, values);
-        if (error) { 
+        if (error) {
           newErrors[name] = error;
         }
       }
@@ -329,4 +340,3 @@ export const Form = forwardRef<FormInstance, FormProps>(
 Form.displayName = 'Form';
 
 export default Form;
-

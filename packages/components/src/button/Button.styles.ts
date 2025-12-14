@@ -143,4 +143,3 @@ export const StyledButton = styled.button<StyledButtonProps>`
       opacity: 0.8;
     `}
 `;
-

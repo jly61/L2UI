@@ -66,16 +66,15 @@ function App() {
 
 ### Button Props
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| type | 按钮类型 | `'default' \| 'primary' \| 'dashed' \| 'link' \| 'text'` | `'default'` |
-| size | 按钮尺寸 | `'small' \| 'medium' \| 'large'` | `'medium'` |
-| loading | 加载状态 | `boolean` | `false` |
-| block | 块级按钮 | `boolean` | `false` |
-| danger | 危险按钮 | `boolean` | `false` |
-| ghost | 幽灵按钮 | `boolean` | `false` |
-| disabled | 禁用状态 | `boolean` | `false` |
-| onClick | 点击事件 | `(e: React.MouseEvent<HTMLButtonElement>) => void` | - |
+| 属性     | 说明     | 类型                                                     | 默认值      |
+| -------- | -------- | -------------------------------------------------------- | ----------- |
+| type     | 按钮类型 | `'default' \| 'primary' \| 'dashed' \| 'link' \| 'text'` | `'default'` |
+| size     | 按钮尺寸 | `'small' \| 'medium' \| 'large'`                         | `'medium'`  |
+| loading  | 加载状态 | `boolean`                                                | `false`     |
+| block    | 块级按钮 | `boolean`                                                | `false`     |
+| danger   | 危险按钮 | `boolean`                                                | `false`     |
+| ghost    | 幽灵按钮 | `boolean`                                                | `false`     |
+| disabled | 禁用状态 | `boolean`                                                | `false`     |
+| onClick  | 点击事件 | `(e: React.MouseEvent<HTMLButtonElement>) => void`       | -           |
 
 Button 支持所有原生 button 元素的属性。
-

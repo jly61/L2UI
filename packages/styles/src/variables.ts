@@ -56,4 +56,3 @@ export const generateCSSVariables = (theme: Theme): string => {
     .map(([key, value]) => `  ${key}: ${value};`)
     .join('\n');
 };
-

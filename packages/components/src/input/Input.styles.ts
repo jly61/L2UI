@@ -41,8 +41,7 @@ export const StyledInput = styled.input<StyledInputProps>`
 
   &:focus:not(:disabled) {
     border-color: ${(props) => props.theme.colors?.primary || '#1890ff'};
-    box-shadow: 0 0 0 2px
-      ${(props) => props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
+    box-shadow: 0 0 0 2px ${(props) => props.theme.colors?.hover || 'rgba(24, 144, 255, 0.2)'};
   }
 
   &:disabled {
@@ -55,4 +54,3 @@ export const StyledInput = styled.input<StyledInputProps>`
     color: ${(props) => props.theme.colors?.textSecondary || '#888'};
   }
 `;
-
